@@ -1,0 +1,75 @@
+{
+  "projectIdentity": {
+    "name": "K-Batch-Ops",
+    "tagline": "A Full-Stack Kubernetes Orchestration Platform for Automated GUI Testing",
+    "summary": "A sophisticated, web-based orchestration engine designed to automate the lifecycle of 'headed' web application testing. It bridges the gap between high-level user triggers and low-level infrastructure by dynamically spinning up isolated Kubernetes environments. The system executes a specialized Java automation JAR within a custom-optimized Docker container, provides real-time visual feedback via remote VNC (Remmina), and enforces strict resource hygiene through automated cleanup."
+  },
+  "technicalArchitecture": {
+    "frontend": {
+      "stack": [
+        "React",
+        "Vite",
+        "TypeScript",
+        "Tailwind CSS",
+        "shadcn-ui"
+      ],
+      "role": "Command Center",
+      "features": {
+        "jobConfiguration": "Provides a structured form interface for users to define precise automation parameters, including 'Client ID', 'Frequency', and 'Batch ID'.",
+        "apiIntegration": "Manages asynchronous communication with the Flask backend, handling the POST request payload construction and response parsing.",
+        "userExperience": "Implements a reactive UI with 'sonner' for toast notifications (success/error states) and real-time loading indicators to provide immediate feedback during the infrastructure provisioning phase.",
+        "dataVisualization": "Renders the raw JSON response from the orchestration engine into a readable format, exposing critical deployment details like the assigned Pod IP, NodePort, and Execution Status."
+      }
+    },
+    "backend": {
+      "stack": [
+        "Python",
+        "Flask",
+        "PyMySQL",
+        "Paramiko",
+        "Jinja2"
+      ],
+      "role": "Orchestration & Logic Engine",
+      "coreLogic": {
+        "infrastructureAsCode": "Utilizes Jinja2 templating to dynamically generate Kubernetes 'Deployment' and 'Service' (SVC) YAML manifests on-the-fly, injecting unique identifiers and port allocations per request.",
+        "processManagement": "Leverages Python's 'subprocess' module to execute direct 'microk8s kubectl' commands, effectively translating API requests into cluster operations.",
+        "remoteExecution": "Uses the Paramiko library to establish secure SSH connections to remote display nodes, allowing the backend to trigger GUI applications (Remmina) on a separate machine."
+      },
+      "endpoints": [
+        {
+          "route": "/run-automation",
+          "method": "POST",
+          "function": "The central trigger that initiates the 'Create -> Watch -> Destroy' lifecycle for the automation job."
+        }
+      ]
+    },
+    "infrastructure": {
+      "platform": "MicroK8s",
+      "orchestrator": "kubectl",
+      "containerization": {
+        "strategy": "Custom-Crafted Lightweight Dockerfile",
+        "details": "I personally engineered the Dockerfile to be strictly minimal. Instead of using bloated base images, I built a lean image containing only the essential runtime dependencies (JRE, Browser binaries, Drivers, X11/VNC utils).",
+        "impact": "This optimization drastically reduced the container image size and memory footprint, allowing the cluster to host significantly more concurrent execution pods without performance degradation."
+      },
+      "workload": {
+        "type": "Java Automation JAR",
+        "executionMode": "Headed (GUI-enabled)",
+        "description": "The pod mounts and executes a specialized JAR file that performs end-to-end web application testing. Unlike standard headless tests, this environment supports full visual rendering via X11 forwarding."
+      }
+    },
+    "dataPersistence": {
+      "engine": "MySQL",
+      "schema": "Dynamic State Tracking",
+      "function": "Maintains a real-time ledger of active jobs. The backend updates the 'execution_order' table the instant a Pod is assigned an IP address, linking the ephemeral infrastructure back to the persistent 'Client ID' for auditing and debugging."
+    }
+  },
+  "executionWorkflow": {
+    "step1_Trigger": "User submits a job via the React UI. The payload (Client ID, Frequency) hits the Flask '/run-automation' endpoint.",
+    "step2_ConfigGeneration": "The backend calculates a unique deployment ID and allocates a free NodePort. It then compiles the deployment.yaml and service.yaml files using Jinja2 templates.",
+    "step3_Provisioning": "The backend executes 'microk8s kubectl apply', instructing the cluster to pull the custom lightweight Docker image and spin up the Pod.",
+    "step4_JarExecution": "Inside the container, the Java Automation JAR starts immediately, launching the web browser to begin the test sequence.",
+    "step5_StateUpdate": "Simultaneously, the backend captures the new Pod's IP and Port and updates the MySQL database to reflect the 'Running' state.",
+    "step6_VisualConnection": "Once the container's VNC port is live, the backend uses Paramiko to SSH into the monitoring station and launches Remmina, auto-connecting it to the Pod. This projects the live browser automation onto the user's screen.",
+    "step7_MonitoringAndCleanup": "A background thread monitors the Pod's logs for the completion signal ('Har Generated successfully'). Upon detection, it triggers a 'kubectl delete', instantly whipping the Pods and Services to free up cluster resources."
+  }
+}
