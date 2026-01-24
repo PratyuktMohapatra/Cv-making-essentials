@@ -1,0 +1,185 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+
+%----------FONT OPTIONS: INTER----------
+\usepackage[T1]{fontenc}
+\usepackage[sfdefault]{inter} 
+%---------------------------------------
+
+\pagestyle{fancy}
+\fancyhf{} 
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+% ADDED \bfseries back here (Makes Section Headings BOLD)
+\titleformat{\section}{
+  \vspace{-4pt}\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+
+% Subheadings (Job Titles): Kept as regular text (No \textbf)
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{itemize}[leftmargin=*, label={}]
+      \item
+        #1 \hfill #2 \\
+        \textit{\small#3} \hfill \textit{\small #4} \\
+    \end{itemize}\vspace{-5pt}
+}
+
+% Project Headings: Kept as regular text (No \textbf)
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{itemize}[leftmargin=*, label={}]
+      \item
+        \small#1 \hfill #2 \\
+    \end{itemize}\vspace{-5pt}
+}
+
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    % NAME IN CAPS & BOLD
+    \textbf{\Huge PRATYUKT MOHAPATRA} \\ \vspace{6pt}
+    % DESIGNATION IN CAPS (Regular)
+    {\large DEVOPS ENGINEER} \\ \vspace{6pt}
+    % CONTACT LINKS
+    \small +91-8328977396 $|$ \href{mailto:pratyuktpc@gmail.com}{pratyuktpc@gmail.com} $|$ 
+    \href{https://linkedin.com/in/pratyuktmohapatra}{linkedin.com/in/pratyukt} $|$
+    \href{https://github.com/pratyukt}{github.com/pratyukt} \\
+    \vspace{2pt}
+    \small Navi Mumbai, India
+\end{center}
+
+
+%-----------SUMMARY-----------
+\section{SUMMARY}
+  \small{Results-driven DevOps Engineer with a proven track record of optimizing project outcomes through cost-effective solutions and streamlined workflows. Skilled in leveraging Docker, Jenkins, Kubernetes, Ansible, and AWS to automate processes and enhance efficiency. Expert in Python and Bash scripting for robust system management.}
+
+
+%-----------TECHNICAL SKILLS-----------
+\section{TECHNICAL SKILLS}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     % Categories are regular text
+     Cloud \& Virtualization{: AWS (EC2, EKS, S3, ECS, VPC), OpenStack, Proxmox, VMware, VirtualBox} \\
+     Containerization{: Docker, Kubernetes, Podman, Vagrant} \\
+     CI/CD \& Automation{: Jenkins, Ansible, GitLab CI, Git, Bash Scripting} \\
+     Monitoring \& Logging{: ELK Stack (Elasticsearch, Logstash, Kibana), Grafana, SonarQube, Trivy} \\
+     Languages{: Python, Java, SQL}
+    }}
+ \end{itemize}
+
+
+%-----------EXPERIENCE-----------
+\section{EXPERIENCE}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {DevOps Engineer}{Jan 2024 -- Present}
+      {Apmosys Technologies Pvt Ltd.}{Navi Mumbai}
+      \resumeItemListStart
+        \resumeItem{Implemented cost-effective solutions using Distroless Docker images and AWS optimizations, resulting in a 20\% reduction in project expenses.}
+        \resumeItem{Streamlined DevOps workflows with Jenkins, Kubernetes, and Ansible, enhancing overall efficiency by 25\%.}
+        \resumeItem{Architected CI/CD pipelines for microservices deployment, ensuring scalable and resilient orchestration on Amazon EKS.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Software Engineer L1 Intern}{July 2024 -- Dec 2024}
+      {Akhrabhi Softlabs}{Remote/Hybrid}
+      \resumeItemListStart
+        \resumeItem{Reduced deployment times by 30\% through efficient use of Proxmox virtualization and optimized server configurations.}
+        \resumeItem{Spearheaded the adoption of advanced firewall solutions like pfSense and Sophos, improving network security and project accuracy by 15\%.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{PROJECTS}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {Auto Execution Project $|$ \emph{Jenkins, Docker, GitLab, Python}}{}
+          \resumeItemListStart
+            \resumeItem{Architected a CI/CD pipeline to build JARs from new versions and run API-driven tests every 15 minutes.}
+            \resumeItem{Engineered a Python solution for containerization, executing JARs, and automating GUI testing with x11 VNC.}
+            \resumeItem{Integrated MySQL for batch tracking and SonarQube for code quality assurance.}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {Microservice Deployment $|$ \emph{AWS EKS, Docker Compose, ELK}}{}
+          \resumeItemListStart
+            \resumeItem{Designed a CI/CD pipeline for deploying 4 microservices apps, integrating Git, OpenStack VMs, and Docker Compose.}
+            \resumeItem{Implemented Trivy for image scanning and SonarQube for code analysis; automated report generation post-testing.}
+            \resumeItem{Deployed on Amazon EKS for scalable, resilient microservices orchestration.}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+
+%-----------EDUCATION-----------
+\section{EDUCATION}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Master of Computer Applications (MCA)}{2022 -- 2024}
+      {Trident Academy of Creative Technology}{CGPA: 9.0}
+    \resumeSubheading
+      {Bachelor of Computer Applications (BCA)}{2019 -- 2022}
+      {Swami Vivekanand Memorial College}{CGPA: 9.1}
+    \resumeSubheading
+      {B.Sc. (Physics/Math)}{2017 -- 2019}
+      {Swami Vivekanand Memorial College}{}
+  \resumeSubHeadingListEnd
+
+%-----------CERTIFICATIONS-----------
+\section{CERTIFICATIONS}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     DevOps: Docker (Udemy), Jenkins (Udemy) \\
+     Other: NPTEL MIS, IoT, Intellectual Property
+    }}
+ \end{itemize}
+
+%-------------------------------------------
+\end{document}
