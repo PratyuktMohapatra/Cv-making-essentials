@@ -1,4 +1,4 @@
-\documentclass[letterpaper,11pt]{article}
+\documentclass[letterpaper,12pt]{article}
 
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
@@ -55,12 +55,12 @@
     \end{itemize}\vspace{-5pt}
 }
 
-% Project Headings: Kept as regular text (No \textbf)
+% Project Headings: ADDED \textbf to make Project Names BOLD
 \newcommand{\resumeProjectHeading}[2]{
     \item
     \begin{itemize}[leftmargin=*, label={}]
       \item
-        \small#1 \hfill #2 \\
+        \small\textbf{#1} \hfill #2 \\
     \end{itemize}\vspace{-5pt}
 }
 
@@ -83,13 +83,14 @@
 %----------HEADING----------
 \begin{center}
     % NAME IN CAPS & BOLD
-    \textbf{\Huge PRATYUKT MOHAPATRA} \\ \vspace{6pt}
+    \textbf{\Huge PRATYUKTA MOHAPATRA} \\ \vspace{6pt}
     % DESIGNATION IN CAPS (Regular)
-    {\large DEVOPS ENGINEER} \\ \vspace{6pt}
+    {\large DevOps Engineer} \\ \vspace{6pt}
     % CONTACT LINKS
-    \small +91-8328977396 $|$ \href{mailto:pratyuktpc@gmail.com}{pratyuktpc@gmail.com} $|$ 
-    \href{https://linkedin.com/in/pratyuktmohapatra}{linkedin.com/in/pratyukt} $|$
-    \href{https://github.com/pratyukt}{github.com/pratyukt} \\
+    \small +91-7609991263 $|$ \href{mailto:pratyuktpc@gmail.com}{pratyuktpc@gmail.com} $|$ 
+    \href{https://www.linkedin.com/in/pratyukt-mohapatra-245304277/}{linkedin.com/in/pratyukt} $|$
+    \href{https://github.com/PratyuktMohapatra}{github.com/pratyukt} \\
+    \href{https://hashnode.com/@Pratyukt}{hashnode.com/@Pratyukt},
     \vspace{2pt}
     \small Navi Mumbai, India
 \end{center}
@@ -97,19 +98,20 @@
 
 %-----------SUMMARY-----------
 \section{SUMMARY}
-  \small{Results-driven DevOps Engineer with a proven track record of optimizing project outcomes through cost-effective solutions and streamlined workflows. Skilled in leveraging Docker, Jenkins, Kubernetes, Ansible, and AWS to automate processes and enhance efficiency. Expert in Python and Bash scripting for robust system management.}
+  \small{Results-driven DevOps Engineer with a proven track record of managing \textbf{570+ mission-critical applications} for major enterprise clients in the Banking and Public sectors. Expertise spans the full On-Premise lifecycle, including architecting Bare Metal Kubernetes clusters, configuring Percona Clusters, and automating workflows using Jenkins. Proven ability to handle high-compliance environments with a focus on security and scalability.}
 
 
 %-----------TECHNICAL SKILLS-----------
 \section{TECHNICAL SKILLS}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-     % Categories are regular text
-     Cloud \& Virtualization{: AWS (EC2, EKS, S3, ECS, VPC), OpenStack, Proxmox, VMware, VirtualBox} \\
-     Containerization{: Docker, Kubernetes, Podman, Vagrant} \\
-     CI/CD \& Automation{: Jenkins, Ansible, GitLab CI, Git, Bash Scripting} \\
-     Monitoring \& Logging{: ELK Stack (Elasticsearch, Logstash, Kibana), Grafana, SonarQube, Trivy} \\
-     Languages{: Python, Java, SQL}
+      % Categories are regular text
+      Cloud \& Virtualization{: CloudStack, Proxmox, VMware, VirtualBox, AWS, Azure } \\
+      Containerization{: Kubernetes (Bare Metal), Docker, Podman, Harbor (Private Registry)} \\
+      CI/CD \& Automation{: Jenkins, Ansible, GitLab CI, Git, Bash Scripting} \\
+      OS \& Security{: RHEL, X11 VNC} \\
+      Monitoring \& Tools{: PMM (Percona Monitoring), Trivy, MySQL, Tmux} \\
+      Languages{: Python, Java, SQL, Bash}
     }}
  \end{itemize}
 
@@ -122,9 +124,9 @@
       {DevOps Engineer}{Jan 2024 -- Present}
       {Apmosys Technologies Pvt Ltd.}{Navi Mumbai}
       \resumeItemListStart
-        \resumeItem{Implemented cost-effective solutions using Distroless Docker images and AWS optimizations, resulting in a 20\% reduction in project expenses.}
+        \resumeItem{Implemented cost-effective solutions using Distroless Docker images and server optimizations, resulting in a 20\% reduction in infrastructure expenses.}
         \resumeItem{Streamlined DevOps workflows with Jenkins, Kubernetes, and Ansible, enhancing overall efficiency by 25\%.}
-        \resumeItem{Architected CI/CD pipelines for microservices deployment, ensuring scalable and resilient orchestration on Amazon EKS.}
+        \resumeItem{Architected CI/CD pipelines for microservices deployment, ensuring scalable and resilient orchestration on \textbf{On-Premise Kubernetes Clusters}.}
       \resumeItemListEnd
 
     \resumeSubheading
@@ -141,20 +143,43 @@
 %-----------PROJECTS-----------
 \section{PROJECTS}
     \resumeSubHeadingListStart
+    
+      % PROJECT 1: ENTERPRISE MICROSERVICES (Clients)
       \resumeProjectHeading
-          {Auto Execution Project $|$ \emph{Jenkins, Docker, GitLab, Python}}{}
+          {Enterprise Microservices Deployment (BFSI \& Public Sector) $|$ \emph{Kubernetes (On-Prem), Jenkins}}{}
           \resumeItemListStart
-            \resumeItem{Architected a CI/CD pipeline to build JARs from new versions and run API-driven tests every 15 minutes.}
-            \resumeItem{Engineered a Python solution for containerization, executing JARs, and automating GUI testing with x11 VNC.}
-            \resumeItem{Integrated MySQL for batch tracking and SonarQube for code quality assurance.}
+            \resumeItem{Orchestrated high-availability microservices deployments for major enterprise clients including \textbf{IDBI Bank}, \textbf{RBL Bank}, \textbf{CRIS (Indian Railways)}, and \textbf{NSDL}.}
+            \resumeItem{Managed complex \textbf{On-Premise Kubernetes} clusters on bare-metal servers, handling manual provisioning, node scaling, and secure artifact storage using \textbf{Harbor}.}
+            \resumeItem{Automated end-to-end pipelines using Jenkins and \textbf{Trivy} for \textbf{SBOM \& CBOM generation} and vulnerability scanning, ensuring strict banking compliance.}
           \resumeItemListEnd
+
+      % PROJECT 2: K-BATCH-OPS (Orchestration)
       \resumeProjectHeading
-          {Microservice Deployment $|$ \emph{AWS EKS, Docker Compose, ELK}}{}
+          {K-Batch-Ops Platform $|$ \emph{MicroK8s, Python Flask, React, Docker}}{}
           \resumeItemListStart
-            \resumeItem{Designed a CI/CD pipeline for deploying 4 microservices apps, integrating Git, OpenStack VMs, and Docker Compose.}
-            \resumeItem{Implemented Trivy for image scanning and SonarQube for code analysis; automated report generation post-testing.}
-            \resumeItem{Deployed on Amazon EKS for scalable, resilient microservices orchestration.}
+             \resumeItem{Built a full-stack orchestration engine using \textbf{MicroK8s} and Python Flask to automate GUI testing for \textbf{570+ web apps}, reducing environment setup time from \textbf{5 mins to 30 secs}.}
+             \resumeItem{Engineered ultra-lightweight Docker images and dynamic pod provisioning logic, significantly reducing memory footprint for high-concurrency execution.}
+             \resumeItem{Implemented "Human-in-the-Loop" workflow via dynamic \textbf{Remmina/VNC} connections, allowing real-time manual intervention for OTP/CAPTCHA handling.}
           \resumeItemListEnd
+
+      % PROJECT 3: NSDL MONITORING (Distributed)
+      \resumeProjectHeading
+          {NSDL Monitoring Infrastructure $|$ \emph{Jenkins Master-Agent, X11VNC, LightDM}}{}
+          \resumeItemListStart
+            \resumeItem{Deployed a \textbf{3-server distributed cluster} running a 13-microservice monitoring stack with a Jenkins Master-Agent topology for load balancing.}
+            \resumeItem{Configured X11VNC and LightDM on bare-metal servers to enable 24/7 headless GUI automation loops executing every 15 minutes.}
+            \resumeItem{Managed the full lifecycle deployment, ensuring redundancy and real-time data processing for the \textbf{National Securities Depository Limited (NSDL)}.}
+          \resumeItemListEnd
+
+      % PROJECT 4: PERCONA MIGRATION (Database)
+      \resumeProjectHeading
+          {Percona XtraDB Cluster Migration $|$ \emph{PXC, HAProxy, Galera, PMM}}{}
+          \resumeItemListStart
+            \resumeItem{Migrated a legacy MySQL system to a \textbf{3-node Percona XtraDB Cluster (PXC)}, achieving \textbf{99.95\% uptime} for 570+ applications.}
+            \resumeItem{Implemented \textbf{HAProxy} with \textbf{Virtual IPs (VIPs)} for intelligent traffic segregation, routing "Execution" writes and "Reporting" reads to separate nodes.}
+            \resumeItem{Integrated \textbf{Percona Monitoring and Management (PMM)} for real-time cluster health visualization and latency tracking.}
+          \resumeItemListEnd
+          
     \resumeSubHeadingListEnd
 
 
