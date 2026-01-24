@@ -1,0 +1,10 @@
+{
+  "project_name": "Enterprise Microservices Deployment & Orchestration (BFSI & Public Sector)",
+  "tech_stack": "AWS EKS, Kubernetes, Docker, Docker Compose, Jenkins, Harbor, Trivy",
+  "description": [
+    "**Client Deployments:** Orchestrated high-availability microservices deployments for major enterprise clients including **IDBI Bank**, **RBL Bank**, **CRIS (Indian Railways)**, and **NSDL**.",
+    "**Orchestration Strategy:** Managed complex **Kubernetes (EKS)** clusters to orchestrate scalable applications, handling complete server provisioning, auto-scaling, and health monitoring.",
+    "**Containerization Lifecycle:** Authored optimized **Dockerfiles** and **Docker Compose** scripts for consistent environments; managed secure artifact storage using **Harbor** (Private Registry).",
+    "**Secure Delivery:** Automated end-to-end deployment pipelines using Jenkins, integrating **Trivy** scans to ensure vulnerability-free releases for strict banking compliance."
+  ]
+}
