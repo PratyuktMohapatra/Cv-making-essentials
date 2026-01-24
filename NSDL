@@ -1,0 +1,47 @@
+{
+  "projectIdentity": {
+    "name": "NSDL Monitoring & Automation Infrastructure",
+    "client": "NSDL (National Securities Depository Limited)",
+    "tagline": "End-to-End Deployment of a 24/7 Microservices-Based Monitoring Solution",
+    "summary": "Architected and deployed a complete monitoring infrastructure for NSDL using a 3-server distributed setup. The solution integrates a 13-microservice application with a robust automation framework running 24/7. I led the full installation lifecycle, from bare-metal server configuration (X11VNC/LightDM) to the orchestration of continuous automation loops via Jenkins Master-Agent topology."
+  },
+  "infrastructureArchitecture": {
+    "topology": "3-Server Distributed Cluster",
+    "nodes": [
+      {
+        "role": "Automation Server 1 (Jenkins Master)",
+        "configuration": "Configured with 'lightdm' and 'x11vnc' to enable headless GUI access for visual automation scripts. Acts as the central orchestrator for the automation pipelines."
+      },
+      {
+        "role": "Automation Server 2 (Jenkins Agent)",
+        "configuration": "Connected as a worker node to the Master. Identically configured with 'lightdm' and 'x11vnc' to handle parallel execution loads."
+      },
+      {
+        "role": "Application & Database Host",
+        "configuration": "Dedicated high-performance server hosting the MySQL database and the core 13-microservice application stack."
+      }
+    ]
+  },
+  "automationWorkflow": {
+    "tools": ["Jenkins (Master-Slave Architecture)", "X11VNC", "LightDM", "Bash/Python Scripts"],
+    "executionModel": {
+      "strategy": "Load-Balanced Distributed Execution",
+      "workload": "30 Distinct Automation Scripts split across two servers.",
+      "schedule": "15 jobs run on Server 1 (Master) and 15 different jobs run on Server 2 (Agent).",
+      "frequency": "High-velocity 15-minute continuous loops running 24/7. Each script executes a complete flow in approximately 1 minute."
+    },
+    "guiAutomation": "Implemented X11VNC and LightDM to create a persistent display environment, allowing 'headed' automation scripts to interact with GUI elements programmatically while running on remote servers."
+  },
+  "applicationDeployment": {
+    "architecture": "Microservices",
+    "scale": "13 Distinct Microservices",
+    "role": "Full Lifecycle Deployment",
+    "details": "I handled the complete installation and deployment process for the in-house monitoring application. This included setting up the service mesh, configuring environment dependencies, and ensuring communication between the automation scripts and the backend.",
+    "dataFlow": "Automation scripts execute test flows and write results directly to the MySQL database. The 13-microservice application consumes this data in real-time to render the monitoring dashboard for the client."
+  },
+  "operationalMetrics": {
+    "uptime": "24/7 Continuous Operation",
+    "throughput": "Continuous 15-minute execution cycles processing real-time monitoring data.",
+    "reliability": "Distributed the load across two physical nodes to prevent bottlenecks and ensure redundancy."
+  }
+}
