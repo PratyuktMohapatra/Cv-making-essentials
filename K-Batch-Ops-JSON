@@ -2,7 +2,7 @@
   "projectIdentity": {
     "name": "K-Batch-Ops",
     "tagline": "A Full-Stack Kubernetes Orchestration Platform for Automated GUI Testing",
-    "summary": "A sophisticated, web-based orchestration engine designed to automate the lifecycle of 'headed' web application testing. It bridges the gap between high-level user triggers and low-level infrastructure by dynamically spinning up isolated Kubernetes environments. The system executes a specialized Java automation JAR within a custom-optimized Docker container, provides real-time visual feedback via remote VNC (Remmina), and enforces strict resource hygiene through automated cleanup."
+    "summary": "A mission-critical orchestration engine operating 24/7 to automate the testing of over 570 distinct web applications. It bridges the gap between high-volume automation and necessary manual interventions (like OTP handling) by dynamically spinning up isolated Kubernetes environments. The system executes specialized Java automation JARs within custom-optimized Docker containers, providing real-time visual feedback via remote VNC (Remmina) for a dedicated monitoring team."
   },
   "technicalArchitecture": {
     "frontend": {
@@ -61,6 +61,15 @@
       "engine": "MySQL",
       "schema": "Dynamic State Tracking",
       "function": "Maintains a real-time ledger of active jobs. The backend updates the 'execution_order' table the instant a Pod is assigned an IP address, linking the ephemeral infrastructure back to the persistent 'Client ID' for auditing and debugging."
+    }
+  },
+  "operationalMetrics": {
+    "scale": "570+ Web Applications",
+    "uptime": "24/7 Continuous Operation",
+    "manualInterventionWorkflow": {
+      "role": "Hybrid Automation",
+      "description": "While the core testing is automated, the system is designed for 'Human-in-the-Loop' operations. When a test encounters a security challenge (e.g., OTP request, CAPTCHA), the monitoring team uses the auto-triggered Remmina VNC connection to manually input the required data, allowing the automation script to proceed.",
+      "teamSupport": "The platform supports a dedicated monitoring team, providing them with instant visual access to any specific container running a blocked test."
     }
   },
   "executionWorkflow": {
